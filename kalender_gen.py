@@ -10,7 +10,7 @@ class Dienst:
     def __init__(self, typ, datum):
         self.type = typ # Art des Dienstes: Fluglehrer, Flugleiter, Windenfahrer, Kantine
         self.date = datum
-        if self.date.weekday() == 5: # Abfrage, ob der Tag ein Samstag ist; Definition der Dienstzeiten (für Sommerzeit)
+        if self.date.weekday() == 5: # Abfrage, ob der Tag ein Samstag ist; Definition der Dienstzeiten (Lokalzeit)
             self.tstart = dt.datetime.combine(self.date, dt.time(13,0,0,0))
             self.tend = dt.datetime.combine(self.date, dt.time(18,0,0,0))
         else:
