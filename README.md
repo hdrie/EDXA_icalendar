@@ -19,7 +19,7 @@
 
 *kalender_gen.py*
 + erstellt je Mitglied in der Namensliste eine *.ics* - Datei, die in den persönlichen Kalender importiert werden kann. Viele, aber nicht alle Apps und Programme unterstützen den Import von .ics-Dateien
-+ Die Kalenderdateien werden in einen Unterordner, hier *./cal1/*, geschrieben. Der muss vorher im Arbeitsverzeichnis erstellt worden sein
++ Die Kalenderdateien werden in einen Unterordner, hier *./cal/*, geschrieben. Der muss vorher im Arbeitsverzeichnis erstellt worden sein
 
 ## Bedienung
 
@@ -29,5 +29,5 @@
 2. Installieren der notwendigen Bibliotheken.
 3. Ausführen des Python-Skripts *einlesen.py*. Dabei Pfad und Name der .csv-Datei beachten und ggf im Skript anpassen.
 4. Es werden eine optimierte Version des Dienstplans und eine Namensliste erstellt
-5. Ausführen des Python-Skrips *kalender_gen.py*. Davor das Unterverzeichnis *./cal1/* erstellen, bzw. ggf. selbst definieren.
+5. Ausführen des Python-Skrips *kalender_gen.py*. Davor das Unterverzeichnis *./cal/* erstellen, bzw. ggf. selbst definieren.
 6. Das Tool sollte für jeden Namen in der Namensliste eine *.ics* Datei erstellen
