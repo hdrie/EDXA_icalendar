@@ -33,6 +33,7 @@ def gen_calendar(dienste):
         events[f"event{i}"].add("summary", f'{n.type} Achmer') # Name, der später im Kalender angezeigt wird
         events[f"event{i}"].add("dtstart", n.tstart) # Startzeit, als datetime-objekt
         events[f"event{i}"].add("dtend", n.tend) # Endzeit
+        events[f"event{i}"].add("dtstamp", dt.datetime.now(dt.timezone.utc)) # Zeitstempel der Erstellung
         events[f"event{i}"].add("status", "CONFIRMED")
         cal.add_component(events[f"event{i}"])
     return cal # Rückgabe des Kalenders
