@@ -11,12 +11,17 @@ class Dienst:
         self.type = typ # Art des Dienstes: Fluglehrer, Flugleiter, Windenfahrer, Kantine
         self.date = datum
         if self.date.weekday() == 5: # Abfrage, ob der Tag ein Samstag ist; Definition der Dienstzeiten (für Sommerzeit)
-            self.tstart = dt.datetime.combine(self.date, dt.time(11, tzinfo=pytz.utc))
-            self.tend = dt.datetime.combine(self.date, dt.time(16, tzinfo=pytz.utc))
+            self.tstart = dt.datetime.combine(self.date, dt.time(13,0,0,0))
+            self.tend = dt.datetime.combine(self.date, dt.time(18,0,0,0))
         else:
-            self.tstart = dt.datetime.combine(self.date, dt.time(8, tzinfo=pytz.utc))
-            self.tend = dt.datetime.combine(self.date, dt.time(16, tzinfo=pytz.utc))
+            self.tstart = dt.datetime.combine(self.date, dt.time(10,0,0,0))
+            self.tend = dt.datetime.combine(self.date, dt.time(18,0,0,0))
 
+# Funktion zum Konvertieren der Lokalzeit in UTC unter Berücksichtigung der Zeitumstellung
+def local_to_utc(_dt, _tz='Europe/Berlin'):
+    timezone=pytz.timezone(_tz)
+    utc=pytz.utc
+    return timezone.localize(_dt).astimezone(utc)
 
 # Funktion zum generieren eines icalendar-Kalenders, nimmt eine Liste von Dienst-Objekten an
 def gen_calendar(dienste):
@@ -31,8 +36,8 @@ def gen_calendar(dienste):
         events[f"event{i}"] = ic.Event()
         events[f"event{i}"].add("uid", f"Achmer-Dienst-{n.date.isoformat()}")
         events[f"event{i}"].add("summary", f'{n.type} Achmer') # Name, der später im Kalender angezeigt wird
-        events[f"event{i}"].add("dtstart", n.tstart) # Startzeit, als datetime-objekt
-        events[f"event{i}"].add("dtend", n.tend) # Endzeit
+        events[f"event{i}"].add("dtstart", local_to_utc(n.tstart)) # Startzeit, als datetime-objekt
+        events[f"event{i}"].add("dtend", local_to_utc(n.tend)) # Endzeit
         events[f"event{i}"].add("dtstamp", dt.datetime.now(dt.timezone.utc)) # Zeitstempel der Erstellung
         events[f"event{i}"].add("status", "CONFIRMED")
         cal.add_component(events[f"event{i}"])
@@ -40,7 +45,7 @@ def gen_calendar(dienste):
 
 # Funktion zum schreiben des übergebenen Kalenders in eine .ics Datei. Der Name der betreffenden Person wird zum Dateinamen
 def write_calendar(name, cal):
-    with open(f"./cal1/{name}.ics", "wb") as f: # "wb": Die .to_ical()-Funktion gibt einen b''-String (binary) raus, daher write-binary
+    with open(f"./cal/{name}.ics", "wb") as f: # "wb": Die .to_ical()-Funktion gibt einen b''-String (binary) raus, daher write-binary
         f.write(cal.to_ical())
 
 # Einlesen der vorbereiteten Datenbanken
