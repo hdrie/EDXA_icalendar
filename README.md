@@ -25,8 +25,8 @@
 
 **Erfahrung mit Python vorausgesetzt**
 
-1. Beschaffen einer .csv-Datei mit dem Dienstplan, darin manuell die Anpassungen vornehmen, wie in *einlesen.py* oben beschrieben
-2. ggf. Installieren der notwendigen Bibliotheken
+1. Beschaffen einer .csv-Datei mit dem Dienstplan, darin manuell die Anpassungen vornehmen, wie in *einlesen.py* kommentiert.
+2. Installieren der notwendigen Bibliotheken.
 3. Ausführen des Python-Skripts *einlesen.py*. Dabei Pfad und Name der .csv-Datei beachten und ggf im Skript anpassen.
 4. Es werden eine optimierte Version des Dienstplans und eine Namensliste erstellt
 5. Ausführen des Python-Skrips *kalender_gen.py*. Davor das Unterverzeichnis *./cal1/* erstellen, bzw. ggf. selbst definieren.
