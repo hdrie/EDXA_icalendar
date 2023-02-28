@@ -29,5 +29,6 @@
 2. Installieren der notwendigen Bibliotheken.
 3. Ausführen des Python-Skripts *einlesen.py*. Dabei Pfad und Name der .csv-Datei beachten und ggf im Skript anpassen.
 4. Es werden eine optimierte Version des Dienstplans und eine Namensliste erstellt
-5. Ausführen des Python-Skrips *kalender_gen.py*. Davor das Unterverzeichnis *./cal/* erstellen, bzw. ggf. selbst definieren.
-6. Das Tool sollte für jeden Namen in der Namensliste eine *.ics* Datei erstellen
+5. Das Unterverzeichnis *./cal/* erstellen, bzw. ggf. selbst definieren.
+6. Ausführen des Python-Skrips *kalender_gen.py*. 
+7. Das Tool sollte für jeden Namen in der Namensliste eine *.ics* Datei erstellen. Zusätztlich wird eine Datei mit allen Flugbetriebstagen erstellt.
